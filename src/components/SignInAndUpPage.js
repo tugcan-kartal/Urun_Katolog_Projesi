@@ -27,34 +27,47 @@ function SignInAndUpPage() {
 
   return (
     <div>
-        
-        <div>
 
-          <div>
-            <img src={logo} />
+
+        <div className='flex justify-evenly items-center'>
+
+          <div className='mt-32'>
+
+            <div className='w-48'>
+              <img className='rounded-full mb-8' src={logo} />
+            </div>
+
+            <div className='font-mono'>
+              Technology is changing our lives at an irresistible speed. 
+              <br />
+              We use this change to make urban life and living easier.
+            </div>
+
           </div>
+          
+          <div className='shadow-lg w-96 h-48 text-center mt-32 bg-slate-50 p-4'>
 
-          <div>
-            Technology is changing our lives at an irresistible speed. We use this change to make urban life and living easier.
+              <form onSubmit={handleSubmit(onSubmit)}>
+
+                  <input className='bg-gray-30 border border-gray-300 text-gray-900 text-lg rounded-lg outline-3 hover:outline-blue-400 pl-4 mb-4' type='text' placeholder='Email...' {...register("email")}/>
+                  <p>{errors.email?.message}</p>
+
+                  <input className='bg-gray-30 border border-gray-300 text-gray-900 text-lg rounded-lg outline-3 hover:outline-blue-400 pl-4 mb-4' type='password' placeholder='Password...' {...register("password")}/>
+                  <p>{errors.password?.message}</p>
+
+                  <input className='bg-blue-400 p-1 pl-4 pr-4 mx-16 mb-2 rounded-lg' type='submit' value='Log In'/>
+
+              </form>
+              
+              <div className='bg-green-400 p-1 pl-4 pr-4 w-3/4 ml-14 rounded-lg'>
+                Create New Account
+              </div>
+          
           </div>
 
         </div>
-        
-        <div>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
 
-                <input className='bg-gray-50 ' type='text' placeholder='Email...' {...register("email")}/>
-                <p>{errors.email?.message}</p>
-
-                <input type='password' placeholder='Password...' {...register("password")}/>
-                <p>{errors.password?.message}</p>
-
-                <input type='submit' />
-
-            </form>
-        
-        </div>
     </div>
   )
 }
